@@ -1,4 +1,7 @@
 PlayerApp::Application.routes.draw do
+  get "players/index"
+
+   root :to => 'players#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
