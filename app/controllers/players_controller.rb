@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   def index
-     @title = "Index"
+     @title = "All Players"
+     @players = Player.all
   end
 end
