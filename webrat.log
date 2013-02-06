@@ -1,0 +1,5 @@
+# Logfile created on 2013-02-05 22:59:05 -0600 by logger.rb/31641
+REQUESTING PAGE: GET /players/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /players with {"utf8"=>"✓", "player"=>{"playerID"=>"NewUser01", "birthYear"=>"1965", "nameFirst"=>"foobar", "nameLast"=>"mistic"}, "commit"=>"Submit"} and HTTP headers {"HTTP_REFERER"=>"/players/new"}
+REQUESTING PAGE: GET /players/new with {} and HTTP headers {}
+REQUESTING PAGE: POST /players with {"utf8"=>"✓", "player"=>{"playerID"=>"NewUser01", "birthYear"=>"1965", "nameFirst"=>"foobar", "nameLast"=>"mistic"}, "commit"=>"Submit"} and HTTP headers {"HTTP_REFERER"=>"/players/new"}
