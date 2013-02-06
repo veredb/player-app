@@ -4,3 +4,7 @@ Factory.define :player do |player|
   player.nameFirst    "Mozo"
   player.nameLast     "rok"
 end
+
+Factory.sequence :nameLast do |n|
+ "<a>person-#{n}</a>"
+end

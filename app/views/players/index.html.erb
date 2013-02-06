@@ -1,16 +1,14 @@
-<!DOCTYPE HTML>
-<html>
-<head>
 <title>All Players</title>
-</head>
-
-<body>
   <h1>All Players</h1>
+
+<%= will_paginate %>
+
+<ul>
   <% @players.each do |player| %>
     <li>
       <%= link_to player.nameLast, player %>
     </li>
   <% end %>
-</body>
+</ul>
 
-</html>
+<%= will_paginate %>
