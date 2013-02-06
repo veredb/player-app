@@ -5,6 +5,6 @@ Factory.define :player do |player|
   player.nameLast     "rok"
 end
 
-Factory.sequence :nameLast do |n|
+Factory.sequence :playerID do |n|
  "<a>person-#{n}</a>"
 end

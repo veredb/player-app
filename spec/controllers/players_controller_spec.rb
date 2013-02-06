@@ -12,12 +12,12 @@ describe PlayersController do
 
     before(:each) do
       @player = Factory(:player)
-      second = Factory(:player, :nameLast => "name2")
-      third = Factory(:player, :nameLast => "name3")
+      second = Factory(:player, :playerID => "name2")
+      third = Factory(:player, :playerID => "name3")
 
       @players = [@player, second, third]
       30.times do
-         @players << Factory(:player, :nameLast => Factory.next(:nameLast))
+         @players << Factory(:player, :playerID => Factory.next(:playerID))
       end
     end
     it "returns http success" do
@@ -33,7 +33,7 @@ describe PlayersController do
     it "should have an element for each player" do
        get :index
        @players[0..2].each do |player|
-          response.should have_selector("li", :content => player.nameLast)
+          response.should have_selector("li", :content => player.playerID)
        end
     end
 
