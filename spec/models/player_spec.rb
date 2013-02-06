@@ -17,13 +17,9 @@ describe Player do
   it "should create a new instance given valid attributes" do
      Player.create!(@attr)
   end
-  it "should require a playerID, birthYear, nameFirst, nameLast"
-end
 
 
-describe Player do
-
-#   it "should import all the data from a file" do
+#  it "should import all the data from a file" do
 #      count = Player.count
 #      count_data_in_csv = 0 
 #      CSV.foreach('lib/tasks/Master-small.csv', :headers => true) do |row|
@@ -31,5 +27,31 @@ describe Player do
 #      end
 #      count.should == count_data_in_csv
       
-#    end
+#   end
+
+
+# form validation
+   
+  it "should require a nameLast" do
+       no_name_player = Player.new(@attr.merge(:nameLast => ""))
+       no_name_player.should_not be_valid 
+   end 
+
+  it "should require a nameFirst" do
+       no_name_player = Player.new(@attr.merge(:nameFirst => ""))
+       no_name_player.should_not be_valid 
+   end 
+
+  it "should require a birthYear" do
+       no_name_player = Player.new(@attr.merge(:birthYear => ""))
+       no_name_player.should_not be_valid 
+   end 
+
+  it "should require a playerID" do
+       no_name_player = Player.new(@attr.merge(:playerID => ""))
+       no_name_player.should_not be_valid 
+   end 
+  
 end
+
+
