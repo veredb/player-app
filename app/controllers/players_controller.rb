@@ -10,4 +10,19 @@ class PlayersController < ApplicationController
      @player = Player.new
   end
 
+  def create
+     @player = Player.new(params[:player])
+     if @player.save
+        flash[:success] = "Welcome to the Player App"
+        redirect_to @player
+     else
+        @title = "New Player"
+        render 'new'
+     end
+  end
+
+  def show
+     @player = Player.find(params[:id])
+  end
+
 end

@@ -63,4 +63,50 @@ describe PlayersController do
       response.should have_selector("title", :content => "New Player")
     end
   end
+
+  
+  describe "POST 'create'" do
+   
+    describe "success" do
+       before(:each) do
+          @attr = { :playerID => "New Player", :birthYear => 1987, :nameFirst => "foo", :nameLast => "bar" }
+       end
+       it "should create a player" do
+          lambda do
+             post :create, :player => @attr
+          end.should change(Player, :count).by(1) 
+       end
+    
+       it "should redirect to the player show page" do
+          post :create, :player => @attr
+          response.should redirect_to(player_path(assigns(:player)))
+       end
+    end
+
+    describe "failure" do
+    end
+  end
+
+  describe "GET 'show'" do
+
+    before(:each) do
+      @player = Factory(:player)
+    end
+    it "should be successful" do
+        get :show, :id => @player
+        response.should be_success
+     end
+     it "should find the right player" do
+         get :show, :id => @player
+         assigns(:player).should == @player
+     end
+
+     it "should include the player's name" do
+         get :show, :id => @player
+         response.should have_selector("h1", :content => @player.nameLast)
+     end 
+  end
+
+  
+
 end
