@@ -20,6 +20,21 @@
             end.should change(Player, :count).by(1)
           end
     end
+
+    describe "failure" do
+          it "should not make a new user" do
+            lambda do
+              visit new_player_path                     
+              fill_in :playerID,                        :with => ""
+              fill_in :birthYear,                       :with => ""
+              fill_in :nameFirst,                       :with => ""
+              fill_in :nameLast,                        :with => ""
+              click_button
+              response.should render_template('players/new')
+            end.should_not change(Player, :count)
+           end
+     end
+
    end
   end
       
