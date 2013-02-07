@@ -25,4 +25,10 @@ class PlayersController < ApplicationController
      @player = Player.find(params[:id])
   end
 
+  def destroy
+     Player.find(params[:id]).destroy
+     flash[:success] = "User destroyed"
+     redirect_to players_path
+  end
+
 end
