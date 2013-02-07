@@ -166,9 +166,18 @@ describe PlayersController do
 
      describe "failure" do
        before(:each) do
-        @attr = { :playerID => "newplayer01", :birthYear => 1987, :nameFirst => "foo", :nameLast => "bar" }
+        @attr = { :playerID => "", :birthYear => "", :nameFirst => "", :nameLast => "" }
        end
-        
+
+       it "should render the 'edit' page" do
+         put :update, :id => @player, :player => @attr
+         response.should render_template('edit')
+       end
+
+       it "should have the right title" do
+         put :update, :id => @player, :player => @attr
+         response.should have_selector("title", :content => "Edit Player")
+       end
      end
       
   end
