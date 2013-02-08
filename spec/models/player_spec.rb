@@ -52,14 +52,6 @@ describe Player do
        no_name_player.should_not be_valid 
    end 
 
-  it "should reject playerIDs identical up to case" do
-       upcased_playerID = @attr[:playerID].upcase
-       Player.create!(@attr.merge(:playerID => upcased_playerID))
-       player_with_duplicate_playerID = Player.new(@attr)
-       player_with_duplicate_playerID.should_not be_valid
-       
-  end
-  
 end
 
 
